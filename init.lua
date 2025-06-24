@@ -177,6 +177,10 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
+-- Yank stuff
+vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
+vim.keymap.set('n', '<leader>Y', [["+Y]])
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -776,15 +780,15 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
         -- You can use 'stop_after_first' to run the first available formatter from the list
+        mustache = { 'prettierd', require_cwd = true },
         javascript = { 'prettierd', require_cwd = true },
         javascriptreact = { 'prettierd', require_cwd = true },
         typescript = { 'prettierd', require_cwd = true },
         typescriptreact = { 'prettierd', require_cwd = true },
-        json = { 'biome', 'prettierd', stop_after_first = true, require_cwd = true },
+        json = { 'prettierd', 'biome', stop_after_first = true, require_cwd = true },
         css = { 'prettierd', require_cwd = true },
+        php = { 'phpcbf', 'php_cs_fixer', require_cwd = true },
       },
     },
   },

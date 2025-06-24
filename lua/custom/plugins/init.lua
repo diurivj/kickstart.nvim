@@ -21,9 +21,6 @@ return {
     end,
   },
 
-  -- git fugitive, :G
-  { 'tpope/vim-fugitive' },
-
   -- git blame
   {
     'f-person/git-blame.nvim',
